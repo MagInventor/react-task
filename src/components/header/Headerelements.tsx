@@ -1,11 +1,11 @@
-import { Formsearch } from './Formsearch'
+import { FormSearch } from './Formsearch'
 
 const Headerelements = () => {
   return (
     <div className="header-elements">
       <div className="container">
         <div className="logo">Applitcation</div>
-        <Formsearch />
+        <FormSearch />
       </div>
     </div>
   )
