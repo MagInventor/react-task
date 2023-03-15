@@ -6,7 +6,6 @@ const Header = () => {
     <header>
         <Headerelements />
         <Navmenu />
-
     </header>
   )
 }

@@ -2,7 +2,6 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
-/*  text-align: center;*/
 }
 
 .container {
@@ -62,7 +61,6 @@ header {
   border: 1px solid transparent;
   text-transform: uppercase;
   font-weight: bold;
-
   cursor: pointer;
 }
 
@@ -74,10 +72,20 @@ header {
 nav {
   margin: 0 auto;
   padding: 10px 0;
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
 }
 
-header a:hover {
-  color: #123321;
+nav .container {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  justify-items: center;
+  grid-gap: 25px;
+}
+
+
+nav a:hover {
+  color: #212530;
   cursor: pointer;
 }
 
@@ -87,6 +95,6 @@ main {
 }
 
 .active {
-  color: #123321;
+  color: #212530;
   cursor: pointer;
 }
