@@ -1,16 +1,10 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { Header } from './header/Header'
 
 const Layout = () => {
   return (
     <>
-    <header>
-      <div className="container">
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-        </nav>
-      </div>
-    </header>
+    <Header />
     <Outlet />
     <footer>2023</footer>
     </>
