@@ -4,7 +4,6 @@ import { Headerelements } from './Headerelements'
 const Header = () => {
   return (
     <header>
-
         <Headerelements />
         <Navmenu />
 
