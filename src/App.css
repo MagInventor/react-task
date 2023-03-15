@@ -29,33 +29,51 @@ header {
   background: #212530;
 }
 
+.header-elements .container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px auto;
+  align-items: center;
+}
+
 .logo {
   color: #fff;
   font-weight: bold;
 }
 
-.form-search__btn {
-  width: 100px;
-  height: 100px;
+.form-search {
+  width: 310px;
 }
 
-.form-search__btn {
-  width: 55px;
-  height: 20px;
-  padding: 0;
-  border-radius: 0;
-  border: transparent;
+.form-search input[type=search] {
+  width: 220px;
+  height: 34px;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.form-search input[type=submit] {
+  width: 80px;
+  height: 30px;
+  margin-left: 10px;
+  background: #E5E5CB;
+  color: #3C2A21;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-weight: bold;
+
   cursor: pointer;
 }
 
-.form-search__btn input {
-  background: transparent;
-  border: 0;
-  cursor: pointer;
+.form-search input[type=submit]:hover {
+  background: #3C2A21;
+  color: #E5E5CB;
 }
 
 nav {
   margin: 0 auto;
+  padding: 10px 0;
 }
 
 header a:hover {

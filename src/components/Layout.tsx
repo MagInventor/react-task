@@ -6,7 +6,7 @@ const Layout = () => {
     <>
     <Header />
     <Outlet />
-    <footer>2023</footer>
+    <footer></footer>
     </>
   )
 }
