@@ -1,14 +1,13 @@
 import { Navmenu } from './Navmenu'
+import { Headerelements } from './Headerelements'
 
 const Header = () => {
   return (
     <header>
-      <div className="container">
-        <div>
-          <div className="logo">Applitcation</div>
-        </div>
+
+        <Headerelements />
         <Navmenu />
-      </div>
+
     </header>
   )
 }
