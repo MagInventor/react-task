@@ -42,13 +42,17 @@ header {
 
 .form-search {
   width: 310px;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-self: end;
 }
 
 .form-search input[type=search] {
   width: 220px;
-  height: 34px;
+  height: 32px;
   border-radius: 5px;
-  padding-left: 5px;
+  padding-left: 6px;
 }
 
 .form-search input[type=submit] {
@@ -56,7 +60,7 @@ header {
   height: 30px;
   margin-left: 10px;
   background: #E5E5CB;
-  color: #3C2A21;
+  color: #4E6E81;
   border-radius: 4px;
   border: 1px solid transparent;
   text-transform: uppercase;
@@ -65,8 +69,22 @@ header {
 }
 
 .form-search input[type=submit]:hover {
-  background: #3C2A21;
+  background: #646CFF;
+;
   color: #E5E5CB;
+}
+
+::-webkit-input-placeholder {
+  color: #e1dddb;
+}
+:-moz-placeholder {
+  color: #e1dddb;
+}
+::-moz-placeholder {
+  color: #e1dddb;
+}
+:-ms-input-placeholder {
+  color: #e1dddb;
 }
 
 nav {
@@ -83,6 +101,9 @@ nav .container {
   grid-gap: 25px;
 }
 
+nav a {
+  color: #646CFF;
+}
 
 nav a:hover {
   color: #212530;
