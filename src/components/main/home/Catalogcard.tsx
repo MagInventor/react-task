@@ -22,8 +22,8 @@ const CatalogCard = () => {
         </div>
         <div className="product-card__info_title">
           <div className="product-card__container">
-            <h3>Super Offer</h3>
-            <p>buy now</p>
+            <h3>5 bedroom apartment ...</h3>
+            <p>Eaton Square, London</p>
           </div>
         </div>
         <div className="product-card__container">
