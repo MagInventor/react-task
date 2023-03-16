@@ -31,7 +31,7 @@ const CatalogCard = () => {
             type="button"
             className="product-card__info_cart" 
           >
-            Add to cart
+            Buy a house
           </button>
         </div>
       </div>
