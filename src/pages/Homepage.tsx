@@ -1,8 +1,10 @@
+import { Catalog } from '../components/main/home/Catalog'
+
 const Homepage = () => {
   return (
     <div className="container">
-      <h1>Home</h1>
-      <p>This is a demo website about Components</p>
+      <h1>Catalog</h1>
+       <Catalog />
     </div>
   )
 }
