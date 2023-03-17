@@ -1,11 +1,11 @@
-import { Navmenu } from './Navmenu'
-import { Headerelements } from './Headerelements'
+import { NavMenu } from './NavMenu'
+import { HeaderElements } from './HeaderElements'
 
 const Header = () => {
   return (
     <header>
-        <Headerelements />
-        <Navmenu />
+        <HeaderElements />
+        <NavMenu />
     </header>
   )
 }

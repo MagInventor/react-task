@@ -1,6 +1,6 @@
 import { FormSearch } from './Formsearch'
 
-const Headerelements = () => {
+const HeaderElements = () => {
   return (
     <div className="header-elements">
       <div className="container">
@@ -11,4 +11,4 @@ const Headerelements = () => {
   )
 }
 
-export {Headerelements}
+export {HeaderElements}
