@@ -1,17 +1,7 @@
 import React, { Component } from 'react'
 // import classes from './Catalogcard.module.css'
-
-import img1 from '../../../assets/catalog/1.jpg'
 import like from '../../../assets/icons/like.png'
-
-interface Product {
-  id: number
-  name: string
-  price: number
-  imageUrl: string
-  description: string
-  address: string
-}
+import { Product } from './Product'
 
 interface ProductCardProps {
   product: Product
@@ -24,8 +14,10 @@ class ProductCard extends Component<ProductCardProps> {
 
   render() {
     const { product } = this.props
-    const productPrice = typeof product.price === 'number' ? `$${product.price}` : 'POA'
-    const guidePrice = typeof product.price === 'number' ? 'Guide Price' : ''
+    const productPrice = typeof product.price === 'number' && product.price !== 0 
+      ? `$${product.price}` 
+      : 'POA'
+    const guidePrice = typeof product.price === 'number' && product.price !== 0 ? 'Guide Price' : ''
 
     return (
       <div className="product-card">
