@@ -14,10 +14,13 @@ class ProductCard extends Component<ProductCardProps> {
 
   render() {
     const { product } = this.props
-    const productPrice = typeof product.price === 'number' && product.price !== 0 
-      ? `$${product.price}` 
-      : 'POA'
-    const guidePrice = typeof product.price === 'number' && product.price !== 0 ? 'Guide Price' : ''
+    let productPrice = 'POA'
+    let guidePrice = ''
+
+    if (typeof product.price === 'number' && product.price !== 0) {
+      productPrice = `$${product.price}`
+      guidePrice = 'Guide Price'
+    } 
 
     return (
       <div className="product-card">

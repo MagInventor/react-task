@@ -4,8 +4,8 @@ import { HeaderElements } from './HeaderElements'
 const Header = () => {
   return (
     <header>
-        <HeaderElements />
-        <NavMenu />
+      <HeaderElements />
+      <NavMenu />
     </header>
   )
 }
