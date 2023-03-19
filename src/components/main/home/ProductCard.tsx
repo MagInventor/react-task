@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import classes from './Catalogcard.module.css'
 import like from '../../../assets/icons/like.png'
 import { Product } from './Product'
 
