@@ -1,4 +1,5 @@
 import { FormSearch } from './FormSearch'
+import './HeaderElements.css'
 
 const HeaderElements = () => {
   return (

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Product } from './Product'
 import { ProductCard } from './ProductCard'
 import { DataStore } from '../../../store/DataStore'
+import './Catalog.css'
 
 interface CatalogProps {
   dataStore: DataStore

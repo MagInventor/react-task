@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import like from '../../../assets/icons/like.png'
 import { Product } from './Product'
+import './ProductCard.css'
 
 interface ProductCardProps {
   product: Product
