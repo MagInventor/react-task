@@ -20,7 +20,7 @@ class FormSearch extends React.Component<Props, State> {
     }
   }
 
-  componentUnmount() {
+  componentWillUnmount() {
     localStorage.setItem('searchRequest', this.state.searchRequest)
   }
 
