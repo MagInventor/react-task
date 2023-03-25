@@ -235,7 +235,7 @@
 }
 
 .user-form__success {
-  display: block;
   margin: 20px 0 -20px 0;
+  color: #539953;
   text-align: center;
 }

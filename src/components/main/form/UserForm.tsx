@@ -49,10 +49,14 @@ class UserForm extends Component<UserFormProps, UserFormState> {
       userRadio,
       userFile
     }
- 
+
     localStorage.setItem('user-form', JSON.stringify(userData));
     this.setState({ nameError: null, submitted: true })
+
     event.currentTarget.reset()
+    setTimeout(() => {
+      this.setState({ nameError: null, submitted: false })
+    }, 4000)
   }
 
   render() {
