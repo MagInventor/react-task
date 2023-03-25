@@ -92,7 +92,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
         </div>
         <div>
         <label htmlFor="date"></label>
-          <p>Date of birth:</p>
+          {/*<p>Date of birth:</p>*/}
           <input
             type="date"
             id="date"
@@ -103,27 +103,20 @@ class UserForm extends Component<UserFormProps, UserFormState> {
         </div>
         <div>
           <label htmlFor="select"></label>
-          <select id="select" ref={this.selectInput} className="user-form__select">
+          <select
+            id="select"
+            ref={this.selectInput}
+            className="user-form__select"
+          >
             <option value="">Select language</option>
             {languages.map((language) => (
               <option key={language}>{language}</option>
             ))}
           </select>
         </div>
-        <div className="user-form__agree">
-          <input
-            type="checkbox"
-            id="checkbox"
-            ref={this.checkboxInput}
-            className="user-form__checkbox"
-          />
-          <label htmlFor="checkbox">
-            <p>I agree to receive all the latest news and promotional mailings</p>
-          </label>
-        </div>
-        <div>
-          <p>Radio:</p>
-          <label htmlFor="radio1"></label>
+        <div className="user-form__theme">
+          <p>Choose theme:</p>
+          <label htmlFor="radio1" className="user-form__light">Light</label>
           <input
             type="radio"
             id="radio1"
@@ -132,7 +125,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             ref={this.radio1Input}
             className="user-form__radio"
           />
-          <label htmlFor="radio2"></label>
+          <label htmlFor="radio2" className="user-form__dark">Dark</label>
           <input
             type="radio"
             id="radio2"
@@ -142,14 +135,28 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             className="user-form__radio"
           />
         </div>
-        <div>
-          <label htmlFor="file">File:</label>
+        <div className="user-form__image">
+          <label htmlFor="file">Add image: </label>
           <input
             type="file"
             id="file"
             ref={this.fileInput}
             className="user-form__file"
           />
+        </div>
+        <div className="user-form__agree">
+          <input
+            type="checkbox"
+            id="checkbox"
+            ref={this.checkboxInput}
+            className="user-form__checkbox"
+          />
+          <label htmlFor="checkbox">
+            <p>
+              I agree to receive all the latest news and promotional mailings
+              We can also send you free coupons and discounts on great products.
+            </p>
+          </label>
         </div>
         <div>
           <button type="submit" className="user-form__btn_save">Save</button>
