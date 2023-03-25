@@ -21,6 +21,10 @@ class UserForm extends Component<UserFormProps, UserFormState> {
 
   constructor(props: UserFormProps) {
     super(props)
+    this.state = {
+      nameError: null,
+      submitted: false,
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -45,12 +49,16 @@ class UserForm extends Component<UserFormProps, UserFormState> {
       userRadio,
       userFile
     }
-
+ 
     localStorage.setItem('user-form', JSON.stringify(userData));
+    this.setState({ nameError: null, submitted: true })
     event.currentTarget.reset()
   }
 
   render() {
+    const { nameError, submitted } = this.state
+    const msg = 'Your data has been saved!'
+
     return (
       <form onSubmit={this.handleSubmit} className="user-form">
         <h2>Write something</h2>
@@ -143,6 +151,9 @@ class UserForm extends Component<UserFormProps, UserFormState> {
         </div>
         <div>
           <button type="submit" className="user-form__btn_save">Save</button>
+          {submitted && (
+            <div className="user-form__success">{msg}</div>
+          )}
         </div>
       </form>
     )

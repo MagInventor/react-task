@@ -233,3 +233,9 @@
 .user-form__btn_save:focus {
   outline: none;
 }
+
+.user-form__success {
+  display: block;
+  margin: 20px 0 -20px 0;
+  text-align: center;
+}
