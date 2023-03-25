@@ -1,69 +1,53 @@
 import React, { Component } from 'react'
 import './UserForm.css'
 
-const languages = ['ENG', 'RU', 'PL', 'FR', 'ESP'];
+const languages = ['ENG', 'RU', 'PL', 'FR', 'ESP']
 
-interface UserFormProps {
-  onSubmit: {
-    name: string,
-    email: string,
-    date: string,
-    select: string,
-    checkbox: boolean,
-    radio: string
-  } 
-}
+interface UserFormProps {}
 
 interface UserFormState {
-  name: string
-  email: string
-  date: string
-  select: string
-  checkbox: boolean
-  radio: string
+  nameError: string | null
+  submitted: boolean
 }
 
 class UserForm extends Component<UserFormProps, UserFormState> {
-  nameInput = React.createRef<HTMLInputElement>()
-  emailInput = React.createRef<HTMLInputElement>()
-  dateInput = React.createRef<HTMLInputElement>()
-  selectInput = React.createRef<HTMLSelectElement>()
-  checkboxInput = React.createRef<HTMLInputElement>()
-  radio1Input = React.createRef<HTMLInputElement>()
-  radio2Input = React.createRef<HTMLInputElement>()
-  fileInput = React.createRef<HTMLInputElement>()
+  nameRef = React.createRef<HTMLInputElement>()
+  emailRef = React.createRef<HTMLInputElement>()
+  dateRef = React.createRef<HTMLInputElement>()
+  selectRef = React.createRef<HTMLSelectElement>()
+  checkboxRef = React.createRef<HTMLInputElement>()
+  radioRef = React.createRef<HTMLInputElement>()
+  fileRef = React.createRef<HTMLInputElement>()
 
   constructor(props: UserFormProps) {
     super(props)
-    this.state = {
-      name: '',
-      email: '',
-      date: '',
-      select: '',
-      checkbox: false,
-      radio: ''
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const nameValue = this.nameRef.current?.value ?? ''
-    const emailValue = this.emailRef.current?.value ?? ''
-    const datelValue = this.emailRef.current?.value ?? ''
-    const selectValue = this.emailRef.current?.value ?? ''
-    const checkboxValue = this.emailRef.current?.value ?? ''
-    const radioValue = this.emailRef.current?.value ?? ''
-    this.props.onSubmit(nameValue, emailValue, datelValue, selectValue, checkboxValue, radioValue)
-    this.setState({
-      name: '',
-      email: '',
-      date: '',
-      select: '',
-      checkbox: false,
-      radio: ''
-    })
 
+    const userName = this.nameRef.current?.value || ''
+    const userEmail = this.emailRef.current?.value || ''
+    const userDate = this.dateRef.current?.value || ''
+    const userSelect = this.selectRef.current?.value || ''
+    const userCheckbox = this.checkboxRef.current?.checked || false
+    const userRadio = this.radioRef.current?.checked || false
+    const userFile = this.fileRef.current?.files?.[0]
+
+    const userData = {
+      userName,
+      userEmail,
+      userDate,
+      userSelect,
+      userCheckbox,
+      userRadio,
+      userFile
+    }
+
+    localStorage.setItem('user-form', JSON.stringify(userData));
+    event.currentTarget.reset()
   }
 
   render() {
@@ -75,7 +59,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             type="text"
             id="name"
             placeholder="Name" 
-            ref={this.nameInput}
+            ref={this.nameRef}
             className="user-form__name"
           />
           <label htmlFor="name"></label>
@@ -85,19 +69,18 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             type="text"
             id="email"
             placeholder="Email"
-            ref={this.emailInput} 
+            ref={this.emailRef} 
             className="user-form__mail"
           /> 
           <label htmlFor="email"></label>
         </div>
         <div>
         <label htmlFor="date"></label>
-          {/*<p>Date of birth:</p>*/}
           <input
             type="date"
             id="date"
             placeholder="Date"
-            ref={this.dateInput} 
+            ref={this.dateRef} 
             className="user-form__date"
           /> 
         </div>
@@ -105,7 +88,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
           <label htmlFor="select"></label>
           <select
             id="select"
-            ref={this.selectInput}
+            ref={this.selectRef}
             className="user-form__select"
           >
             <option value="">Select language</option>
@@ -121,8 +104,8 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             type="radio"
             id="radio1"
             name="radio"
-            value="radio1"
-            ref={this.radio1Input}
+            value="light"
+            ref={this.radioRef}
             className="user-form__radio"
           />
           <label htmlFor="radio2" className="user-form__dark">Dark</label>
@@ -130,8 +113,8 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             type="radio"
             id="radio2"
             name="radio"
-            value="radio2"
-            ref={this.radio2Input}
+            value="dark"
+            ref={this.radioRef}
             className="user-form__radio"
           />
         </div>
@@ -140,7 +123,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
           <input
             type="file"
             id="file"
-            ref={this.fileInput}
+            ref={this.fileRef}
             className="user-form__file"
           />
         </div>
@@ -148,7 +131,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
           <input
             type="checkbox"
             id="checkbox"
-            ref={this.checkboxInput}
+            ref={this.checkboxRef}
             className="user-form__checkbox"
           />
           <label htmlFor="checkbox">
