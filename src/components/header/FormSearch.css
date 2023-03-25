@@ -32,15 +32,18 @@
   color: #E5E5CB;
 }
 
-::-webkit-input-placeholder {
+.form-search ::-webkit-input-placeholder {
   color: #e1dddb;
 }
-:-moz-placeholder {
+
+.form-search :-moz-placeholder {
   color: #e1dddb;
 }
-::-moz-placeholder {
+
+.form-search ::-moz-placeholder {
   color: #e1dddb;
 }
-:-ms-input-placeholder {
+
+.form-search :-ms-input-placeholder {
   color: #e1dddb;
 }
