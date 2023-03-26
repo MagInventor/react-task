@@ -1,0 +1,60 @@
+.user-cards {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column: repeat(3, 1fr);
+  grid-gap: 20px 0;
+  justify-items: center;
+}
+
+.user-card {
+  padding: 20px;
+  width: 250px;
+  height: 440px;
+  background: #fff;
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+  overflow: hidden;
+}
+
+.user-card .light {
+  background: #fff;
+  color: #213547;
+}
+
+.user-card .dark {
+  background: ##646464;
+  color: #fff;
+}
+
+.user-card__name {
+  overflow: hidden;
+}
+
+.user-card__image {
+  width: 250px;
+  height: 150px;
+  background: #ddd;
+}
+
+.user-card__file {
+  background: #ddd;
+}
+
+.user-card__email {
+  overflow: hidden;
+}
+
+.user-card__date {
+
+}
+
+.user-card__select {
+
+}
+
+.user-card__radio {
+
+}
+
+.user-card__checkbox {
+
+}
