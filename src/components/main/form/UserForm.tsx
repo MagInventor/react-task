@@ -25,7 +25,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
       nameError: null,
       submitted: false,
     }
-
+    this.typeData = ''
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -36,18 +36,46 @@ class UserForm extends Component<UserFormProps, UserFormState> {
     const userEmail = this.emailRef.current?.value || ''
     const userDate = this.dateRef.current?.value || ''
     const userSelect = this.selectRef.current?.value || ''
-    const userCheckbox = this.checkboxRef.current?.checked || false
+    const userCheckbox = this.checkboxRef.current?.value || false
     const userRadio = this.radioRef.current?.checked || false
     const userFile = this.fileRef.current?.files?.[0]
 
+    const user = {
+      name: { title: 'name', data: userName || '' },
+      mail: { title: 'email', data: userEmail || '' },
+      date: { title: 'date', data: userDate || '' , content: 'date of birth'},
+      select: { title: 'select', data: userSelect || '', content: 'language'},
+      radio: { title: 'radio', data: userRadio || '', content: 'theme'},
+      file: { title: 'file', data: userFile || '' },
+      checkbox: { title: 'checkbox', data: userCheckbox || '', content: 'consent sign'},
+    }
+
+    for (let key in user) {
+      this.typeData = user[key].title
+
+      if (!user[key].data) {
+        console.log(this.typeData)
+        const variable = user[key].content ? user[key].content : user[key].title
+        this.setState({ nameError: `Please enter your ${variable}` })
+        setTimeout(() => { this.setState({ nameError: '' })}, 5000)
+        return
+      }
+
+      if (!/^[A-Z]/.test(userName)) {
+        this.setState({ nameError: 'Name should start with uppercase letter' })
+        setTimeout(() => { this.setState({ nameError: '' })}, 5000)
+        return;
+      }
+    }
+
     const userData = {
-      userName,
-      userEmail,
-      userDate,
-      userSelect,
-      userCheckbox,
-      userRadio,
-      userFile
+      name: userName,
+      email: userEmail,
+      date: userDate,
+      select: userSelect,
+      checkbox: userCheckbox,
+      radio: userRadio,
+      file: userFile
     }
 
     localStorage.setItem('user-form', JSON.stringify(userData));
@@ -62,6 +90,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
   render() {
     const { nameError, submitted } = this.state
     const msg = 'Your data has been saved!'
+    let typeData = this.typeData || ''
 
     return (
       <form onSubmit={this.handleSubmit} className="user-form">
@@ -75,19 +104,21 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             className="user-form__name"
           />
           <label htmlFor="name"></label>
+          {nameError && typeData ==='name' && <p className="user-form__error">{nameError}</p>}
         </div>
         <div className="user-form__floating form-text">
           <input
-            type="text"
+            type="email"
             id="email"
             placeholder="Email"
             ref={this.emailRef} 
             className="user-form__mail"
-          /> 
+          />
           <label htmlFor="email"></label>
+          {nameError && typeData ==='email' &&  <p className="user-form__error">{nameError}</p>}
         </div>
         <div>
-        <label htmlFor="date"></label>
+          <label htmlFor="date"></label>
           <input
             type="date"
             id="date"
@@ -95,6 +126,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             ref={this.dateRef} 
             className="user-form__date"
           /> 
+          {nameError && typeData ==='date' && <p className="user-form__error">{nameError}</p>}
         </div>
         <div>
           <label htmlFor="select"></label>
@@ -108,27 +140,31 @@ class UserForm extends Component<UserFormProps, UserFormState> {
               <option key={language}>{language}</option>
             ))}
           </select>
+          {nameError && typeData === 'select' && <p className="user-form__error">{nameError}</p>}
         </div>
         <div className="user-form__theme">
-          <p>Choose theme:</p>
-          <label htmlFor="radio1" className="user-form__light">Light</label>
-          <input
-            type="radio"
-            id="radio1"
-            name="radio"
-            value="light"
-            ref={this.radioRef}
-            className="user-form__radio"
-          />
-          <label htmlFor="radio2" className="user-form__dark">Dark</label>
-          <input
-            type="radio"
-            id="radio2"
-            name="radio"
-            value="dark"
-            ref={this.radioRef}
-            className="user-form__radio"
-          />
+          <div className="user-form__theme__content">
+            <p>Choose theme:</p>
+            <label htmlFor="radio1" className="user-form__light">Light</label>
+            <input
+              type="radio"
+              id="radio1"
+              name="radio"
+              value="light"
+              ref={this.radioRef}
+              className="user-form__radio"
+            />
+            <label htmlFor="radio2" className="user-form__dark">Dark</label>
+            <input
+              type="radio"
+              id="radio2"
+              name="radio"
+              value="dark"
+              ref={this.radioRef}
+              className="user-form__radio"
+            />
+          </div>
+          {nameError && typeData === 'radio' && <p className="user-form__error">{nameError}</p>}
         </div>
         <div className="user-form__image">
           <label htmlFor="file">Add image: </label>
@@ -138,20 +174,24 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             ref={this.fileRef}
             className="user-form__file"
           />
+          {nameError && typeData === 'file' && <p className="user-form__error">{nameError}</p>}
         </div>
         <div className="user-form__agree">
-          <input
-            type="checkbox"
-            id="checkbox"
-            ref={this.checkboxRef}
-            className="user-form__checkbox"
-          />
-          <label htmlFor="checkbox">
-            <p>
-              I agree to receive all the latest news and promotional mailings
-              We can also send you free coupons and discounts on great products.
-            </p>
-          </label>
+          <div className="user-form__agree_container">
+            <input
+              type="checkbox"
+              id="checkbox"
+              ref={this.checkboxRef}
+              className="user-form__checkbox"
+            />
+            <label htmlFor="checkbox">
+              <p className="user-form__agree_content">
+                I agree to receive all the latest news and promotional mailings
+                We can also send you free coupons and discounts on great products.
+              </p>
+            </label>
+          </div>
+          {nameError && typeData === 'checkbox' && <p className="user-form__error">{nameError}</p>}
         </div>
         <div>
           <button type="submit" className="user-form__btn_save">Save</button>
