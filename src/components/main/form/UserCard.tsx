@@ -34,15 +34,15 @@ class UserCard extends Component {
             className="user-card"
             key={index}
           >
-            <h2 className="user-card__name">{card.userName}</h2>
+            <h2 className="user-card__name">{card.name}</h2>
             <div className="user-card__image">
-              <img className="user-card__file" src={card.userFile} alt="Uploaded file" />
+              <img className="user-card__file" src={card.file} alt="Uploaded file" />
             </div>
-            <p className="user-card__email">Email: {card.userEmail}</p>
-            <p className="user-card__date">Date of birth: {card.userDate}</p>
-            <p className="user-card__select">Native language: {card.userSelect}</p>
-            <p className="user-card__radio">card color: {card.userRadio ? 'Selected' : 'Not selected'}</p>
-            <p className="user-card__checkbox">Consent given: {card.userCheckbox ? 'Checked' : 'Unchecked'}</p>
+            <p className="user-card__email">Email: {card.email}</p>
+            <p className="user-card__date">Date of birth: {card.date}</p>
+            <p className="user-card__select">Native language: {card.select}</p>
+            <p className="user-card__radio">card color: {card.radio ? 'Selected' : 'Not selected'}</p>
+            <p className="user-card__checkbox">Consent given: {card.checkbox ? 'Checked' : 'Unchecked'}</p>
           </div>
         ))}
       </div>

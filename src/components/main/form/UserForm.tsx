@@ -36,16 +36,15 @@ class UserForm extends Component<UserFormProps, UserFormState> {
     const userEmail = this.emailRef.current?.value || ''
     const userDate = this.dateRef.current?.value || ''
     const userSelect = this.selectRef.current?.value || ''
-    const userCheckbox = this.checkboxRef.current?.value || false
     const userRadio = this.radioRef.current?.checked || false
     const userFile = this.fileRef.current?.files?.[0]
+    const userCheckbox = this.checkboxRef.current?.checked || false
 
     const user = {
       name: { title: 'name', data: userName || '' },
       mail: { title: 'email', data: userEmail || '' },
       date: { title: 'date', data: userDate || '' , content: 'date of birth'},
       select: { title: 'select', data: userSelect || '', content: 'language'},
-      radio: { title: 'radio', data: userRadio || '', content: 'theme'},
       file: { title: 'file', data: userFile || '' },
       checkbox: { title: 'checkbox', data: userCheckbox || '', content: 'consent sign'},
     }
@@ -54,7 +53,6 @@ class UserForm extends Component<UserFormProps, UserFormState> {
       this.typeData = user[key].title
 
       if (!user[key].data) {
-        console.log(this.typeData)
         const variable = user[key].content ? user[key].content : user[key].title
         this.setState({ nameError: `Please enter your ${variable}` })
         setTimeout(() => { this.setState({ nameError: '' })}, 5000)
@@ -164,7 +162,6 @@ class UserForm extends Component<UserFormProps, UserFormState> {
               className="user-form__radio"
             />
           </div>
-          {nameError && typeData === 'radio' && <p className="user-form__error">{nameError}</p>}
         </div>
         <div className="user-form__image">
           <label htmlFor="file">Add image: </label>
