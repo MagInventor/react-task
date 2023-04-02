@@ -12,4 +12,4 @@ const HeaderElements = () => {
   )
 }
 
-export {HeaderElements}
+export default HeaderElements

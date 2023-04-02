@@ -1,4 +1,4 @@
-import { Form } from '../components/main/form/Form'
+import Form from '../components/main/form/Form'
 
 const Formpage = () => {
   return (

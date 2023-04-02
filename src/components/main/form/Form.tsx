@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { UserForm } from './UserForm'
+import React from 'react'
+import UserForm from './UserForm'
 import UserCard from './UserCard'
 import './Form.css'
 
@@ -16,4 +16,4 @@ const Form = () => {
   )
 }
 
-export {Form}
+export default Form

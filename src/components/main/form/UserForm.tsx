@@ -203,4 +203,4 @@ class UserForm extends Component<UserFormProps, UserFormState> {
   }
 }
 
-export {UserForm}
+export default UserForm

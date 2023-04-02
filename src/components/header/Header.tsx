@@ -1,5 +1,5 @@
-import { NavMenu } from './NavMenu'
-import { HeaderElements } from './HeaderElements'
+import NavMenu from './NavMenu'
+import HeaderElements from './HeaderElements'
 import './Header.css'
 
 const Header = () => {

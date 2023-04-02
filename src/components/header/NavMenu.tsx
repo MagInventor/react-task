@@ -13,4 +13,4 @@ const NavMenu = () => {
   )
 }
 
-export {NavMenu}
+export default NavMenu
