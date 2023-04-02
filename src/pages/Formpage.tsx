@@ -8,4 +8,4 @@ const Formpage = () => {
   )
 }
 
-export {Formpage}
+export default Formpage

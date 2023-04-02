@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import { Layout } from '../components/Layout'
-import { Homepage } from '../pages/Homepage'
-import { Aboutpage } from '../pages/Aboutpage'
-import { Formpage } from '../pages/Formpage'
-import { Notfoundpage } from '../pages/Notfoundpage'
+import Layout from '../components/Layout'
+import Homepage from '../pages/Homepage'
+import Aboutpage from '../pages/Aboutpage'
+import Formpage from '../pages/Formpage'
+import Notfoundpage from '../pages/Notfoundpage'
 
 function Router() {
   return (
