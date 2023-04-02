@@ -45,6 +45,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
       mail: { title: 'email', data: userEmail || '' },
       date: { title: 'date', data: userDate || '' , content: 'date of birth'},
       select: { title: 'select', data: userSelect || '', content: 'language'},
+      // radio: { title: 'radio', data: userRadio || '', content: 'theme'},
       file: { title: 'file', data: userFile || '' },
       checkbox: { title: 'checkbox', data: userCheckbox || '', content: 'consent sign'},
     }
@@ -162,6 +163,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
               className="user-form__radio"
             />
           </div>
+          {/*{nameError && typeData === 'radio' && <p className="user-form__error">{nameError}</p>}*/}
         </div>
         <div className="user-form__image">
           <label htmlFor="file">Add image: </label>
