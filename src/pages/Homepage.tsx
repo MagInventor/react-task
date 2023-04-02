@@ -1,4 +1,4 @@
-import { Catalog } from '../components/main/home/Catalog'
+import Catalog from '../components/main/home/Catalog'
 
 const Homepage = () => {
   return (
@@ -9,4 +9,4 @@ const Homepage = () => {
   )
 }
 
-export {Homepage}
+export {Homepage} 

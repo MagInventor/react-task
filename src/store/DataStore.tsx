@@ -198,4 +198,4 @@ class DataStore {
 
 }
 
-export {DataStore}
+export default DataStore

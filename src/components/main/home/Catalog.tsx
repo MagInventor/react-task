@@ -1,33 +1,31 @@
-import React, { Component } from 'react'
-import { Product } from './Product'
-import { ProductCard } from './ProductCard'
-import { DataStore } from '../../../store/DataStore'
+import React, { useEffect, useState } from 'react'
+import Product from './Product'
+import ProductCard from './ProductCard'
+import DataStore from '../../../store/DataStore'
 import './Catalog.css'
 
 interface CatalogProps {
   dataStore: DataStore
 }
 
-class Catalog extends Component<CatalogProps> {
-  constructor(props: CatalogProps) {
-    super(props)
-  }
+function Catalog({ dataStore }: CatalogProps) {
+  const [products, setProducts] = useState<Product[]>([]);
 
-  render() {
-    const { dataStore } = this.props
-    const products = new DataStore().getProducts()
+  useEffect(() => {
+    const fetchedProducts = new DataStore().getProducts();
+    setProducts(fetchedProducts);
+  }, [dataStore]);
 
-    return (
-      <div className="product-list">
-        {products.map(product => (
-          <ProductCard
-            key={product.id}
-            product={product}
-          />
-        ))}
-      </div>
-    )
-  }
+  return (
+    <div className="product-list">
+      {products.map(product => (
+        <ProductCard
+          key={product.id}
+          product={product}
+        />
+      ))}
+    </div>
+  )
 }
 
-export {Catalog}
+export default Catalog

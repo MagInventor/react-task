@@ -7,4 +7,4 @@ interface Product {
   address: string
 }
 
-export {Product}
+export default Product
