@@ -36,3 +36,4 @@ const FormSearch: React.FC<FormSearchProps> = ({ initialSearchRequest = '' }) =>
 }
 
 export default FormSearch
+
