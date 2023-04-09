@@ -1,0 +1,23 @@
+nav {
+  margin: 0 auto;
+  padding: 10px 0;
+  background: #fff;
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+nav .container {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  justify-items: center;
+  grid-gap: 25px;
+}
+
+nav a {
+  color: #646CFF;
+}
+
+nav a:hover {
+  color: #212530;
+  cursor: pointer;
+}

@@ -1,0 +1,7 @@
+.form-page {
+  margin-top: 50px;
+}
+
+.form-page .container {
+  display: grid;
+}
